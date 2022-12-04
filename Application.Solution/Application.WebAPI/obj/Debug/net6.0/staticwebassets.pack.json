@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\ford-transit.jpg",
+      "PackagePath": "staticwebassets\\uploads\\buses\\ford-transit.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\hyundai-universe.jpg",
+      "PackagePath": "staticwebassets\\uploads\\buses\\hyundai-universe.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\nissan-civilian.jfif",
+      "PackagePath": "staticwebassets\\uploads\\buses\\nissan-civilian.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cars\\grandeur-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cars\\grandeur-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cars\\grandeur-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\hummer-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cars\\hummer-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\hummer-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cars\\hummer-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\nissan.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cars\\nissan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\kamaz-4310.jpg",
+      "PackagePath": "staticwebassets\\uploads\\trucks\\kamaz-4310.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\man-f2000.jpg",
+      "PackagePath": "staticwebassets\\uploads\\trucks\\man-f2000.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\mercedes-axor.jpg",
+      "PackagePath": "staticwebassets\\uploads\\trucks\\mercedes-axor.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Application.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Application.WebAPI.props",
+      "PackagePath": "build\\Application.WebAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Application.WebAPI.props",
+      "PackagePath": "buildMultiTargeting\\Application.WebAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Application.WebAPI.props",
+      "PackagePath": "buildTransitive\\Application.WebAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
