@@ -37,11 +37,11 @@ namespace Application.WebAPI.AppCode.Application.Modules.CarModule
                 {
                     Car car = mapper.Map<Car>(request);
 
-                    if (car.Files != null && car.Files.Any())
+                    if (request.Files != null && request.Files.Any())
                     {
                         car.CarImages = new List<CarImage>();
 
-                        foreach (ImageItem item in car.Files)
+                        foreach (ImageItem item in request.Files)
                         {
                             string extension = Path.GetExtension(item.File.FileName);
                             string filepath = $"car-{Guid.NewGuid().ToString().Replace("-", "")}{extension}".ToLower();

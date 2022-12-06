@@ -1,5 +1,6 @@
 ﻿using Application.WebAPI.AppCode.Application.Infrastructure;
 using Application.WebAPI.AppCode.Extensions;
+using Application.WebAPI.AppCode.Mappers.Dtos;
 using Application.WebAPI.Models.DataContexts;
 using Application.WebAPI.Models.Entities;
 using Application.WebAPI.Models.FormModels;
@@ -85,7 +86,9 @@ namespace Application.WebAPI.AppCode.Application.Modules.CarModule
 
                     await db.SaveChangesAsync(cancellationToken);
 
-                    return new CommandJsonResponse("Məlumatlar uğurla yeniləndi!", false);
+                    CarDto dto = mapper.Map<CarDto>(car);
+
+                    return new CommandJsonResponse<CarDto>("Məlumatlar uğurla yeniləndi!", false, dto);
                 }
 
                 return new CommandJsonResponse("Xətalı müraciət!", true);

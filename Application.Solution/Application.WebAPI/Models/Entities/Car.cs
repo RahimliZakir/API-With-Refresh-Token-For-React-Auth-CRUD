@@ -9,8 +9,5 @@ namespace Application.WebAPI.Models.Entities
         public string Model { get; set; } = null!;
 
         public virtual ICollection<CarImage>? CarImages { get; set; }
-
-        [NotMapped]
-        public ImageItem[]? Files { get; set; }
     }
 }
