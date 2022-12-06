@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
 
-namespace Application.WebAPI.AppCode.Application.Modules
+namespace Application.WebAPI.AppCode.Application.Modules.CarModule
 {
     public class CarRemoveCommand : IRequest<CommandJsonResponse>
     {

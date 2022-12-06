@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Mp9xiWz2pCt5WEa0e3eJSGfNHJHPPfprQcO3+pRkYqw=",
+  "Hash": "BMgeZ0jHAd7aLePRssBktbEgPzQwBAqOnnisMwAFHYg=",
   "Source": "Application.WebAPI",
   "BasePath": "_content/Application.WebAPI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Application.WebAPI\\wwwroot",
       "Source": "Application.WebAPI",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\ford-transit.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\ford-transit.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/buses/ford-transit.jpg",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\buses\\ford-transit.jpg"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\hyundai-universe.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\hyundai-universe.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/buses/hyundai-universe.jpg",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\buses\\hyundai-universe.jpg"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\nissan-civilian.jfif",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\nissan-civilian.jfif",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/buses/nissan-civilian.jfif",
       "AssetKind": "All",
@@ -68,10 +68,61 @@
       "OriginalItemSpec": "wwwroot\\uploads\\buses\\nissan-civilian.jfif"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-1.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\car-146fef16495e442eb62a45b87b430dd7.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "BasePath": "_content/Application.WebAPI",
+      "RelativePath": "uploads/cars/car-146fef16495e442eb62a45b87b430dd7.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\cars\\car-146fef16495e442eb62a45b87b430dd7.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\car-cc794f710d0f4f4e96bd37bb27e03d56.jpg",
+      "SourceId": "Application.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "BasePath": "_content/Application.WebAPI",
+      "RelativePath": "uploads/cars/car-cc794f710d0f4f4e96bd37bb27e03d56.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\cars\\car-cc794f710d0f4f4e96bd37bb27e03d56.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\car-e6c86a5a217f4a669a97953ea7f72144.jpg",
+      "SourceId": "Application.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "BasePath": "_content/Application.WebAPI",
+      "RelativePath": "uploads/cars/car-e6c86a5a217f4a669a97953ea7f72144.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\cars\\car-e6c86a5a217f4a669a97953ea7f72144.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-1.jpg",
+      "SourceId": "Application.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/cars/grandeur-1.jpg",
       "AssetKind": "All",
@@ -85,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\cars\\grandeur-1.jpg"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-2.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-2.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/cars/grandeur-2.jpg",
       "AssetKind": "All",
@@ -102,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\cars\\grandeur-2.jpg"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-3.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-3.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/cars/grandeur-3.jpg",
       "AssetKind": "All",
@@ -119,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\cars\\grandeur-3.jpg"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\hummer-1.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\hummer-1.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/cars/hummer-1.jpg",
       "AssetKind": "All",
@@ -136,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\cars\\hummer-1.jpg"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\hummer-2.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\hummer-2.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/cars/hummer-2.jpg",
       "AssetKind": "All",
@@ -153,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\cars\\hummer-2.jpg"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\nissan.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\nissan.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/cars/nissan.jpg",
       "AssetKind": "All",
@@ -170,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\cars\\nissan.jpg"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\kamaz-4310.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\kamaz-4310.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/trucks/kamaz-4310.jpg",
       "AssetKind": "All",
@@ -187,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\trucks\\kamaz-4310.jpg"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\man-f2000.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\man-f2000.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/trucks/man-f2000.jpg",
       "AssetKind": "All",
@@ -204,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\trucks\\man-f2000.jpg"
     },
     {
-      "Identity": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\mercedes-axor.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\mercedes-axor.jpg",
       "SourceId": "Application.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\",
       "BasePath": "_content/Application.WebAPI",
       "RelativePath": "uploads/trucks/mercedes-axor.jpg",
       "AssetKind": "All",

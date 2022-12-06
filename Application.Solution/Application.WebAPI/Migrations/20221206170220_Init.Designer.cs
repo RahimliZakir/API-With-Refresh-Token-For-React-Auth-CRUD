@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Application.WebAPI.Migrations
 {
     [DbContext(typeof(VehicleDbContext))]
-    [Migration("20221204173731_Init")]
+    [Migration("20221206170220_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -136,12 +136,17 @@ namespace Application.WebAPI.Migrations
             modelBuilder.Entity("Application.WebAPI.Models.Entities.CarImage", b =>
                 {
                     b.HasOne("Application.WebAPI.Models.Entities.Car", "Car")
-                        .WithMany()
+                        .WithMany("CarImages")
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Car");
+                });
+
+            modelBuilder.Entity("Application.WebAPI.Models.Entities.Car", b =>
+                {
+                    b.Navigation("CarImages");
                 });
 #pragma warning restore 612, 618
         }

@@ -133,12 +133,17 @@ namespace Application.WebAPI.Migrations
             modelBuilder.Entity("Application.WebAPI.Models.Entities.CarImage", b =>
                 {
                     b.HasOne("Application.WebAPI.Models.Entities.Car", "Car")
-                        .WithMany()
+                        .WithMany("CarImages")
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Car");
+                });
+
+            modelBuilder.Entity("Application.WebAPI.Models.Entities.Car", b =>
+                {
+                    b.Navigation("CarImages");
                 });
 #pragma warning restore 612, 618
         }

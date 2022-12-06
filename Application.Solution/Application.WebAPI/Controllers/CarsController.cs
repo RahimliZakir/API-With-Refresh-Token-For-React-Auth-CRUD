@@ -7,6 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Application.WebAPI.Models.DataContexts;
 using Application.WebAPI.Models.Entities;
+using MediatR;
+using Application.WebAPI.AppCode.Application.Modules.CarModule;
+using Application.WebAPI.AppCode.Mappers.Dtos;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Application.WebAPI.AppCode.Application.Infrastructure;
+using Azure;
 
 namespace Application.WebAPI.Controllers
 {
@@ -14,95 +20,63 @@ namespace Application.WebAPI.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private readonly VehicleDbContext _context;
+        readonly IMediator mediator;
 
-        public CarsController(VehicleDbContext context)
+        public CarsController(VehicleDbContext context, IMediator mediator)
         {
-            _context = context;
+            this.mediator = mediator;
         }
 
-        // GET: api/Cars
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Car>>> GetCars()
+        public async Task<IActionResult> GetCars()
         {
-            return await _context.Cars.ToListAsync();
+            IEnumerable<CarDto> dto = await mediator.Send(new CarGetAllActiveQuery());
+
+            return Ok(dto);
         }
 
-        // GET: api/Cars/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Car>> GetCar(int id)
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetCar([FromRoute] CarSingleQuery query)
         {
-            var car = await _context.Cars.FindAsync(id);
+            CommandJsonResponse response = await mediator.Send(query);
 
-            if (car == null)
-            {
-                return NotFound();
-            }
+            if (response.Error)
+                return BadRequest(response.Message);
 
-            return car;
+            return Ok(((CommandJsonResponse<CarDto>)response).Data);
         }
 
-        // PUT: api/Cars/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCar(int id, Car car)
-        {
-            if (id != car.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(car).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CarExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Cars
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Car>> PostCar(Car car)
+        public async Task<IActionResult> PostCar([FromForm] CarCreateCommand command)
         {
-            _context.Cars.Add(car);
-            await _context.SaveChangesAsync();
+            CommandJsonResponse response = await mediator.Send(command);
 
-            return CreatedAtAction("GetCar", new { id = car.Id }, car);
+            if (response.Error)
+                return BadRequest(response.Message);
+
+            return CreatedAtAction("GetCar", new { Id = ((CommandJsonResponse<CarDto>)response).Data.Id }, response);
         }
 
-        // DELETE: api/Cars/5
+        [HttpPut("{Id}")]
+        public async Task<IActionResult> PutCar([FromForm] CarEditCommand command)
+        {
+            CommandJsonResponse response = await mediator.Send(command);
+
+            if (response.Error)
+                return BadRequest(response.Message);
+
+            return AcceptedAtAction("GetCar", new { Id = ((CommandJsonResponse<CarDto>)response).Data.Id }, response);
+        }
+
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCar(int id)
+        public async Task<IActionResult> DeleteCar(CarRemoveCommand command)
         {
-            var car = await _context.Cars.FindAsync(id);
-            if (car == null)
-            {
-                return NotFound();
-            }
+            CommandJsonResponse response = await mediator.Send(command);
 
-            _context.Cars.Remove(car);
-            await _context.SaveChangesAsync();
+            if (response.Error)
+                return BadRequest(response.Message);
 
-            return NoContent();
-        }
-
-        private bool CarExists(int id)
-        {
-            return _context.Cars.Any(e => e.Id == id);
+            return Ok(response.Message);
         }
     }
 }

@@ -28,6 +28,16 @@ services.AddMediatR(typeof(Program));
 
 services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
+services.AddCors(cfg =>
+{
+    cfg.AddPolicy("_allowAnyOrigins", options =>
+    {
+        options.AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowAnyOrigin();
+    });
+});
+
 services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -56,6 +66,8 @@ if (env.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
+
+app.UseCors("_allowAnyOrigins");
 
 app.UseSwagger();
 

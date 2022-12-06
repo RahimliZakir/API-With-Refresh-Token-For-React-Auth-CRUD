@@ -5,7 +5,7 @@ using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.WebAPI.AppCode.Application.Modules
+namespace Application.WebAPI.AppCode.Application.Modules.CarModule
 {
     public class CarGetAllActiveQuery : IRequest<IEnumerable<CarDto>>
     {
