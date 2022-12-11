@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Application.WebAPI.Controllers
 {
@@ -19,8 +20,7 @@ namespace Application.WebAPI.Controllers
             this.mediator = mediator;
         }
 
-        [HttpPost("signin")]
-        [AllowAnonymous]
+        [HttpPost("signin"), AllowAnonymous]
         [SwaggerOperation("Daxil olma pəncərəsi", "Bu hissədən istifadə edərək, istifadəçi sistemə daxil ola bilər.")]
         async public Task<IActionResult> SignIn(SignInCommand command)
         {
@@ -32,12 +32,22 @@ namespace Application.WebAPI.Controllers
             return Ok(response);
         }
 
-        [HttpPost("register")]
-        [AllowAnonymous]
+        [HttpPost("register"), AllowAnonymous]
         [SwaggerOperation("Qeydiyyat pəncərəsi", "Bu hissədən istifadə edərək, istifadəçi sistem üçün qeydiyyatdan keçə bilər.")]
         async public Task<IActionResult> Register(RegisterCommand command)
         {
             CommandJsonResponse response = await mediator.Send(command);
+
+            if (response.Error)
+                return BadRequest(response);
+
+            return Ok(response);
+        }
+
+        [HttpPost("refresh-token"), AllowAnonymous]
+        async public Task<IActionResult> RefreshToken()
+        {
+            CommandJsonResponse response = await mediator.Send(new RefreshTokenCommand());
 
             if (response.Error)
                 return BadRequest(response);

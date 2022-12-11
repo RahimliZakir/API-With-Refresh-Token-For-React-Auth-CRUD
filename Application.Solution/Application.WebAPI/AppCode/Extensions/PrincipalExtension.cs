@@ -16,5 +16,10 @@ namespace Application.WebAPI.AppCode.Extensions
         {
             return ctx.ActionContext.HttpContext.User.GetUserId();
         }
+
+        public static int GetUserId(this IHttpContextAccessor ctx)
+        {
+            return ctx.HttpContext.User.GetUserId();
+        }
     }
 }

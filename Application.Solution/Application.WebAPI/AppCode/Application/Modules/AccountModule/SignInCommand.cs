@@ -3,11 +3,13 @@ using Application.WebAPI.AppCode.Extensions;
 using Application.WebAPI.Models.DataContexts;
 using Application.WebAPI.Models.Entities.Membership;
 using Application.WebAPI.Models.FormModels;
+using Application.WebAPI.Models.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
@@ -20,13 +22,15 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
             readonly UserManager<VehicleUser> userManager;
             readonly SignInManager<VehicleUser> signInManager;
             readonly IConfiguration conf;
+            readonly IHttpContextAccessor ctx;
 
-            public SignInCommandHandler(VehicleDbContext db, UserManager<VehicleUser> userManager, SignInManager<VehicleUser> signInManager, IConfiguration conf)
+            public SignInCommandHandler(VehicleDbContext db, UserManager<VehicleUser> userManager, SignInManager<VehicleUser> signInManager, IConfiguration conf, IHttpContextAccessor ctx)
             {
                 this.db = db;
                 this.userManager = userManager;
                 this.signInManager = signInManager;
                 this.conf = conf;
+                this.ctx = ctx;
             }
 
             async public Task<CommandJsonResponse> Handle(SignInCommand request, CancellationToken cancellationToken)
@@ -40,7 +44,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
                     return new CommandJsonResponse("Şifrə göndərilməyib!", true);
                 }
 
-                VehicleUser user = null;
+                VehicleUser? user = null;
                 if (request.Username.IsEmail())
                 {
                     user = await userManager.FindByEmailAsync(request.Username);
@@ -73,40 +77,15 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
                 }
 
             stopGenerate:
-                List<Claim> claims = new();
-                claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
+                string tokenAndExpires = user.GenerateToken(conf);
 
-                if (!string.IsNullOrWhiteSpace(user.Name) || !string.IsNullOrWhiteSpace(user.Surname))
-                {
-                    claims.Add(new Claim("FullName", $"{user.Name} {user.Surname}"));
-                }
-                else if (!string.IsNullOrWhiteSpace(user.PhoneNumber))
-                {
-                    claims.Add(new Claim("FullName", $"{user.PhoneNumber}"));
-                }
-                else
-                {
-                    claims.Add(new Claim("FullName", $"{user.Email}"));
-                }
+                // Refresh Token
+                RefreshTokenViewModel refreshToken = Extension.GenerateRefreshToken();
 
-                claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
+                await user.SetRefreshToken(refreshToken, ctx, db, cancellationToken);
+                // Refresh Token
 
-                string issuer = conf["Jwt:Issuer"];
-                string audience = conf.GetValue<string>("Jwt:Audience");
-
-                byte[] buffer = Encoding.UTF8.GetBytes(conf["Jwt:Secret"]);
-                SymmetricSecurityKey key = new(buffer);
-                SigningCredentials creds = new(key, SecurityAlgorithms.HmacSha256);
-
-                DateTime expired = DateTime.UtcNow.AddHours(4).AddMinutes(10);
-
-                JwtSecurityToken tokenBuilder = new(issuer, audience, claims,
-                                                        expires: expired,
-                                                        signingCredentials: creds);
-
-                string token = new JwtSecurityTokenHandler().WriteToken(tokenBuilder);
-
-                return new CommandJsonResponse<string>("Uğurludur!", false, $"Token: {token}, expired: {expired}.");
+                return new CommandJsonResponse<string>("Uğurludur!", false, tokenAndExpires);
             }
         }
     }
