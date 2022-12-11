@@ -8,7 +8,8 @@ namespace Application.WebAPI.AppCode.Mappers.Profiles
     {
         public CarImageProfile()
         {
-            CreateMap<CarImage, CarImageDto>();
+            CreateMap<CarImage, CarImageDto>()
+                     .ForMember(dest => dest.ImagePath, src => src.MapFrom(map => $"https://localhost:7074/uploads/cars/{map.ImagePath}"));
         }
     }
 }

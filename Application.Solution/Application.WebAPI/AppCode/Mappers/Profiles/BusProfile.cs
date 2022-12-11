@@ -9,7 +9,8 @@ namespace Application.WebAPI.AppCode.Mappers.Profiles
     {
         public BusProfile()
         {
-            CreateMap<Bus, BusDto>();
+            CreateMap<Bus, BusDto>()
+                     .ForMember(dest => dest.ImagePath, src => src.MapFrom(map => $"https://localhost:7074/uploads/buses/{map.ImagePath}"));
             CreateMap<BusCreateCommand, Bus>();
             CreateMap<BusEditCommand, Bus>();
         }
