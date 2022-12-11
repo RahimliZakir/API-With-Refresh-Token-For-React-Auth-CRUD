@@ -31,9 +31,9 @@ namespace Application.WebAPI.Controllers
             CommandJsonResponse response = await mediator.Send(query);
 
             if (response.Error)
-                return BadRequest(response.Message);
+                return BadRequest(response);
 
-            return Ok(((CommandJsonResponse<TruckDto>)response).Data);
+            return Ok(((CommandJsonResponse<TruckDto>)response));
         }
 
         [HttpPost]
@@ -42,7 +42,7 @@ namespace Application.WebAPI.Controllers
             CommandJsonResponse response = await mediator.Send(command);
 
             if (response.Error)
-                return BadRequest(response.Message);
+                return BadRequest(response);
 
             return CreatedAtAction("GetTruck", new { Id = ((CommandJsonResponse<TruckDto>)response).Data.Id }, response);
         }
@@ -53,7 +53,7 @@ namespace Application.WebAPI.Controllers
             CommandJsonResponse response = await mediator.Send(command);
 
             if (response.Error)
-                return BadRequest(response.Message);
+                return BadRequest(response);
 
             return AcceptedAtAction("GetTruck", new { Id = ((CommandJsonResponse<TruckDto>)response).Data.Id }, response);
         }
@@ -64,9 +64,9 @@ namespace Application.WebAPI.Controllers
             CommandJsonResponse response = await mediator.Send(command);
 
             if (response.Error)
-                return BadRequest(response.Message);
+                return BadRequest(response);
 
-            return Ok(response.Message);
+            return Ok(response);
         }
     }
 }
