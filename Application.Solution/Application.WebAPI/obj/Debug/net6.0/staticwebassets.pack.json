@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\uploads\\buses\\nissan-civilian.jfif"
     },
     {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\car-2919f6e6827d450c9fc3f853f974b42e.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cars\\car-2919f6e6827d450c9fc3f853f974b42e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\car-974d7bdb8e3745d4b3530b1a717b58ed.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cars\\car-974d7bdb8e3745d4b3530b1a717b58ed.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\car-bb4824474ee348ab89ef67a1948a35c1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cars\\car-bb4824474ee348ab89ef67a1948a35c1.jpg"
+    },
+    {
       "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-1.jpg",
       "PackagePath": "staticwebassets\\uploads\\cars\\grandeur-1.jpg"
     },
@@ -47,6 +59,14 @@
     {
       "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\mercedes-axor.jpg",
       "PackagePath": "staticwebassets\\uploads\\trucks\\mercedes-axor.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\truck-e7325dffc4c14df5bfb6878b0e05bd10.jpg",
+      "PackagePath": "staticwebassets\\uploads\\trucks\\truck-e7325dffc4c14df5bfb6878b0e05bd10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\truck-eaee1044c7884c479405a9372e648399.jpg",
+      "PackagePath": "staticwebassets\\uploads\\trucks\\truck-eaee1044c7884c479405a9372e648399.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Application.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props",

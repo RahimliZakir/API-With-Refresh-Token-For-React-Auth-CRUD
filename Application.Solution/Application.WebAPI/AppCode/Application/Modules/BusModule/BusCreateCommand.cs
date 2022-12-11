@@ -43,7 +43,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.BusModule
                         string filename = $"bus-{Guid.NewGuid().ToString().Replace("-", "")}{ext}";
                         string fullpath = Path.Combine(env.ContentRootPath, "wwwroot", "uploads", "buses", filename);
 
-                        using (FileStream fs = new(fullpath, FileMode.Open, FileAccess.Write))
+                        using (FileStream fs = new(fullpath, FileMode.Create, FileAccess.Write))
                         {
                             await request.File.CopyToAsync(fs, cancellationToken);
                         }

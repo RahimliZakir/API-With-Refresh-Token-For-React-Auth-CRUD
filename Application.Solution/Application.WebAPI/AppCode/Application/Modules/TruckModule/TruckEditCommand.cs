@@ -55,6 +55,8 @@ namespace Application.WebAPI.AppCode.Application.Modules.TruckModule
                     else if (request.File is null)
                     {
                         currentpath = Path.Combine(env.ContentRootPath, "wwwroot", "uploads", "trucks", entity.ImagePath);
+
+                        truck.ImagePath = null;
                     }
                     else if (request.File is not null)
                     {

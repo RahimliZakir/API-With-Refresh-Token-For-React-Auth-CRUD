@@ -42,7 +42,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.TruckModule
                         string filename = $"truck-{Guid.NewGuid().ToString().Replace("-", "")}{ext}";
                         string fullpath = Path.Combine(env.ContentRootPath, "wwwroot", "uploads", "trucks", filename);
 
-                        using (FileStream fs = new(fullpath, FileMode.Open, FileAccess.Write))
+                        using (FileStream fs = new(fullpath, FileMode.Create, FileAccess.Write))
                         {
                             await request.File.CopyToAsync(fs, cancellationToken);
                         }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Application.WebAPI.AppCode.Application.Infrastructure;
+using Application.WebAPI.AppCode.Application.Modules.BusModule;
+using Application.WebAPI.AppCode.Mappers.Dtos;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Application.WebAPI.Models.DataContexts;
-using Application.WebAPI.Models.Entities;
 
 namespace Application.WebAPI.Controllers
 {
@@ -14,95 +10,63 @@ namespace Application.WebAPI.Controllers
     [ApiController]
     public class BusesController : ControllerBase
     {
-        private readonly VehicleDbContext _context;
+        readonly IMediator mediator;
 
-        public BusesController(VehicleDbContext context)
+        public BusesController(IMediator mediator)
         {
-            _context = context;
+            this.mediator = mediator;
         }
 
-        // GET: api/Buses
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Bus>>> GetBuses()
+        public async Task<IActionResult> GetBuses()
         {
-            return await _context.Buses.ToListAsync();
+            IEnumerable<BusDto> dto = await mediator.Send(new BusGetAllActiveQuery());
+
+            return Ok(dto);
         }
 
-        // GET: api/Buses/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Bus>> GetBus(int id)
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetBus([FromRoute] BusSingleQuery query)
         {
-            var bus = await _context.Buses.FindAsync(id);
+            CommandJsonResponse response = await mediator.Send(query);
 
-            if (bus == null)
-            {
-                return NotFound();
-            }
+            if (response.Error)
+                return BadRequest(response.Message);
 
-            return bus;
+            return Ok(((CommandJsonResponse<BusDto>)response).Data);
         }
 
-        // PUT: api/Buses/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutBus(int id, Bus bus)
-        {
-            if (id != bus.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(bus).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BusExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Buses
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Bus>> PostBus(Bus bus)
+        public async Task<IActionResult> PostBus([FromForm] BusCreateCommand command)
         {
-            _context.Buses.Add(bus);
-            await _context.SaveChangesAsync();
+            CommandJsonResponse response = await mediator.Send(command);
 
-            return CreatedAtAction("GetBus", new { id = bus.Id }, bus);
+            if (response.Error)
+                return BadRequest(response.Message);
+
+            return CreatedAtAction("GetBus", new { Id = ((CommandJsonResponse<BusDto>)response).Data.Id }, response);
         }
 
-        // DELETE: api/Buses/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBus(int id)
+        [HttpPut("{Id}")]
+        public async Task<IActionResult> PutBus([FromForm] BusEditCommand command)
         {
-            var bus = await _context.Buses.FindAsync(id);
-            if (bus == null)
-            {
-                return NotFound();
-            }
+            CommandJsonResponse response = await mediator.Send(command);
 
-            _context.Buses.Remove(bus);
-            await _context.SaveChangesAsync();
+            if (response.Error)
+                return BadRequest(response.Message);
 
-            return NoContent();
+            return AcceptedAtAction("GetBus", new { Id = ((CommandJsonResponse<BusDto>)response).Data.Id }, response);
         }
 
-        private bool BusExists(int id)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> DeleteBus([FromRoute] BusRemoveCommand command)
         {
-            return _context.Buses.Any(e => e.Id == id);
+            CommandJsonResponse response = await mediator.Send(command);
+
+            if (response.Error)
+                return BadRequest(response.Message);
+
+            return Ok(response.Message);
         }
     }
 }

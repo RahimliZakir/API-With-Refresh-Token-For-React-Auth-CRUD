@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Application.WebAPI.AppCode.Application.Infrastructure;
+using Application.WebAPI.AppCode.Application.Modules.TruckModule;
+using Application.WebAPI.AppCode.Mappers.Dtos;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Application.WebAPI.Models.DataContexts;
-using Application.WebAPI.Models.Entities;
 
 namespace Application.WebAPI.Controllers
 {
@@ -14,95 +10,63 @@ namespace Application.WebAPI.Controllers
     [ApiController]
     public class TrucksController : ControllerBase
     {
-        private readonly VehicleDbContext _context;
+        readonly IMediator mediator;
 
-        public TrucksController(VehicleDbContext context)
+        public TrucksController(IMediator mediator)
         {
-            _context = context;
+            this.mediator = mediator;
         }
 
-        // GET: api/Trucks
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Truck>>> GetTrucks()
+        public async Task<IActionResult> GetTrucks()
         {
-            return await _context.Trucks.ToListAsync();
+            IEnumerable<TruckDto> dto = await mediator.Send(new TruckGetAllActiveQuery());
+
+            return Ok(dto);
         }
 
-        // GET: api/Trucks/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Truck>> GetTruck(int id)
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetTruck([FromRoute] TruckSingleQuery query)
         {
-            var truck = await _context.Trucks.FindAsync(id);
+            CommandJsonResponse response = await mediator.Send(query);
 
-            if (truck == null)
-            {
-                return NotFound();
-            }
+            if (response.Error)
+                return BadRequest(response.Message);
 
-            return truck;
+            return Ok(((CommandJsonResponse<TruckDto>)response).Data);
         }
 
-        // PUT: api/Trucks/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutTruck(int id, Truck truck)
-        {
-            if (id != truck.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(truck).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TruckExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Trucks
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Truck>> PostTruck(Truck truck)
+        public async Task<IActionResult> PostTruck([FromForm] TruckCreateCommand command)
         {
-            _context.Trucks.Add(truck);
-            await _context.SaveChangesAsync();
+            CommandJsonResponse response = await mediator.Send(command);
 
-            return CreatedAtAction("GetTruck", new { id = truck.Id }, truck);
+            if (response.Error)
+                return BadRequest(response.Message);
+
+            return CreatedAtAction("GetTruck", new { Id = ((CommandJsonResponse<TruckDto>)response).Data.Id }, response);
         }
 
-        // DELETE: api/Trucks/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTruck(int id)
+        [HttpPut("{Id}")]
+        public async Task<IActionResult> PutTruck([FromForm] TruckEditCommand command)
         {
-            var truck = await _context.Trucks.FindAsync(id);
-            if (truck == null)
-            {
-                return NotFound();
-            }
+            CommandJsonResponse response = await mediator.Send(command);
 
-            _context.Trucks.Remove(truck);
-            await _context.SaveChangesAsync();
+            if (response.Error)
+                return BadRequest(response.Message);
 
-            return NoContent();
+            return AcceptedAtAction("GetTruck", new { Id = ((CommandJsonResponse<TruckDto>)response).Data.Id }, response);
         }
 
-        private bool TruckExists(int id)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> DeleteTruck([FromRoute] TruckRemoveCommand command)
         {
-            return _context.Trucks.Any(e => e.Id == id);
+            CommandJsonResponse response = await mediator.Send(command);
+
+            if (response.Error)
+                return BadRequest(response.Message);
+
+            return Ok(response.Message);
         }
     }
 }

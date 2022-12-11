@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "3636ba0e-680e-4a29-b718-dfa34ca8bc90",
+		"name": "API-With-Refresh-Token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11616959"
+	},
+	"item": [
+		{
+			"name": "CarModule",
+			"item": [
+				{
+					"name": "CarEditCommand",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Nissan",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "Murano",
+									"type": "text"
+								},
+								{
+									"key": "files[0].id",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "files[0].isMain",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "files[0].tempPath",
+									"value": "car-974d7bdb8e3745d4b3530b1a717b58ed.jpg",
+									"type": "text"
+								},
+								{
+									"key": "files[1].id",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "files[1].isMain",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "files[1].tempPath",
+									"value": "car-2919f6e6827d450c9fc3f853f974b42e.jpg",
+									"type": "text"
+								},
+								{
+									"key": "files[2].isMain",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "files[2].file",
+									"type": "file",
+									"src": "/C:/Users/Zakir/Desktop/20844_bFwMGxe1RgUU1avJpsvNog.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/cars/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"cars",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CarCreateCommand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company",
+									"value": "Nissan",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "Murano",
+									"type": "text"
+								},
+								{
+									"key": "files[0].isMain",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "files[0].file",
+									"type": "file",
+									"src": "/C:/Users/Zakir/Desktop/IMG_9204_0.jpg"
+								},
+								{
+									"key": "files[1].isMain",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "files[1].file",
+									"type": "file",
+									"src": "/C:/Users/Zakir/Desktop/Nissan_Murano_P4220650.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/cars",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BusModule",
+			"item": [
+				{
+					"name": "BusCreateCommand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company",
+									"value": "Daewoo",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "BH120",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Zakir/Desktop/maxresdefault.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/buses",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"buses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BusEditCommand",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Daewoo",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "BH120FDFF",
+									"type": "text"
+								},
+								{
+									"key": "fileTemp",
+									"value": "bus-072984114a32460894fe590b4c1095a7.jpg",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Zakir/Desktop/25084650877_5edbd69534_b.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/buses/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"buses",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TruckModule",
+			"item": [
+				{
+					"name": "TruckCreateCommand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company",
+									"value": "Isuzu",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "Elf",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Zakir/Desktop/2001-Isuzu-Elf-Dump-Truck-Front-2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/trucks",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"trucks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TruckEditCommand",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Isuzu",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "Elf",
+									"type": "text"
+								},
+								{
+									"key": "fileTemp",
+									"value": "truck-eaee1044c7884c479405a9372e648399.jpg",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Zakir/Desktop/Nippon_Rent-A-Car_Isuzu_Elf_NJR85A.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:7074/api/trucks/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7074",
+							"path": [
+								"api",
+								"trucks",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
