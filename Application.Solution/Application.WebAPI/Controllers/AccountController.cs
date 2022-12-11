@@ -2,10 +2,8 @@
 using Application.WebAPI.AppCode.Application.Modules.AccountModule;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Application.WebAPI.Controllers
 {
