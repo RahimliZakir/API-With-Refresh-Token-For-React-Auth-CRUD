@@ -1,6 +1,13 @@
+using Application.WebAPI.AppCode.Extensions;
+using Application.WebAPI.AppCode.Providers;
 using Application.WebAPI.Models.DataContexts;
+using Application.WebAPI.Models.Entities.Membership;
 using Application.WebAPI.Models.Initializers;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -15,7 +22,14 @@ services.AddRouting(cfg =>
     cfg.LowercaseUrls = true;
 });
 
-services.AddControllers();
+services.AddControllers(cfg =>
+{
+    AuthorizationPolicy builder = new AuthorizationPolicyBuilder()
+                                      .RequireAuthenticatedUser()
+                                      .Build();
+
+    cfg.Filters.Add(new AuthorizeFilter(builder));
+});
 
 services.AddDbContext<VehicleDbContext>(cfg =>
 {
@@ -27,16 +41,6 @@ services.AddAutoMapper(typeof(Program));
 services.AddMediatR(typeof(Program));
 
 services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-
-services.AddCors(cfg =>
-{
-    cfg.AddPolicy("_allowAnyOrigins", options =>
-    {
-        options.AllowAnyHeader()
-               .AllowAnyMethod()
-               .AllowAnyOrigin();
-    });
-});
 
 services.AddSwaggerGen(c =>
 {
@@ -60,11 +64,64 @@ services.AddSwaggerGen(c =>
     });
 });
 
+services.AddIdentity<VehicleUser, VehicleRole>()
+        .AddEntityFrameworkStores<VehicleDbContext>();
+
+services.AddScoped<UserManager<VehicleUser>>()
+        .AddScoped<RoleManager<VehicleRole>>()
+        .AddScoped<SignInManager<VehicleUser>>();
+
+services.AddScoped<IClaimsTransformation, AppClaimProvider>();
+
+services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 8;
+    options.Password.RequiredUniqueChars = 1;
+
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(60);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.AllowedForNewUsers = true;
+
+    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@";
+    options.User.RequireUniqueEmail = true;
+});
+
+services.AddCors(cfg =>
+{
+    cfg.AddPolicy("_allowAnyOrigins", options =>
+    {
+        options.AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowAnyOrigin();
+    });
+});
+
+services.AddAuthorization(cfg =>
+{
+    string[] principals = services.GetPrincipals(typeof(Program));
+
+    foreach (string principal in principals)
+    {
+        cfg.AddPolicy(principal, options =>
+        {
+            options.RequireAssertion(assertion =>
+             {
+                 return assertion.User.HasClaim(principal, "1") || assertion.User.IsInRole("Admin");
+             });
+        });
+    }
+});
+
 WebApplication app = builder.Build();
 IWebHostEnvironment env = builder.Environment;
 if (env.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+    app.Initialize();
 }
 
 app.UseCors("_allowAnyOrigins");
@@ -78,13 +135,14 @@ app.UseSwaggerUI(c =>
 
 app.UseStaticFiles();
 
-app.Initialize();
+await app.InitializeMembership();
 
 app.UseRouting();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+app.UseAuthentication();
+
+app.UseAuthorization();
+
+app.MapControllers();
 
 app.Run();

@@ -282,3 +282,4 @@ C:\Users\Zakir\Desktop\API-With-Refresh-Token-And-For-Auth-React\Application.Sol
 C:\Users\Zakir\Desktop\API-With-Refresh-Token-And-For-Auth-React\Application.Solution\Application.WebAPI\obj\Debug\net7.0\Application.WebAPI.genruntimeconfig.cache
 C:\Users\Zakir\Desktop\API-With-Refresh-Token-And-For-Auth-React\Application.Solution\Application.WebAPI\obj\Debug\net7.0\ref\Application.WebAPI.dll
 C:\Users\Zakir\Desktop\API-With-Refresh-Token-And-For-Auth-React\Application.Solution\Application.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Zakir\Desktop\API-With-Refresh-Token-And-For-Auth-React\Application.Solution\Application.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
