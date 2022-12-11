@@ -1,63 +1,51 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\ford-transit.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\ford-transit.jpg",
       "PackagePath": "staticwebassets\\uploads\\buses\\ford-transit.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\hyundai-universe.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\hyundai-universe.jpg",
       "PackagePath": "staticwebassets\\uploads\\buses\\hyundai-universe.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\nissan-civilian.jfif",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\buses\\nissan-civilian.jfif",
       "PackagePath": "staticwebassets\\uploads\\buses\\nissan-civilian.jfif"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\car-146fef16495e442eb62a45b87b430dd7.jpg",
-      "PackagePath": "staticwebassets\\uploads\\cars\\car-146fef16495e442eb62a45b87b430dd7.jpg"
-    },
-    {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\car-cc794f710d0f4f4e96bd37bb27e03d56.jpg",
-      "PackagePath": "staticwebassets\\uploads\\cars\\car-cc794f710d0f4f4e96bd37bb27e03d56.jpg"
-    },
-    {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\car-e6c86a5a217f4a669a97953ea7f72144.jpg",
-      "PackagePath": "staticwebassets\\uploads\\cars\\car-e6c86a5a217f4a669a97953ea7f72144.jpg"
-    },
-    {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-1.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-1.jpg",
       "PackagePath": "staticwebassets\\uploads\\cars\\grandeur-1.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-2.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-2.jpg",
       "PackagePath": "staticwebassets\\uploads\\cars\\grandeur-2.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-3.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\grandeur-3.jpg",
       "PackagePath": "staticwebassets\\uploads\\cars\\grandeur-3.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\hummer-1.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\hummer-1.jpg",
       "PackagePath": "staticwebassets\\uploads\\cars\\hummer-1.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\hummer-2.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\hummer-2.jpg",
       "PackagePath": "staticwebassets\\uploads\\cars\\hummer-2.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\nissan.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\cars\\nissan.jpg",
       "PackagePath": "staticwebassets\\uploads\\cars\\nissan.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\kamaz-4310.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\kamaz-4310.jpg",
       "PackagePath": "staticwebassets\\uploads\\trucks\\kamaz-4310.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\man-f2000.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\man-f2000.jpg",
       "PackagePath": "staticwebassets\\uploads\\trucks\\man-f2000.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\mercedes-axor.jpg",
+      "Id": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\wwwroot\\uploads\\trucks\\mercedes-axor.jpg",
       "PackagePath": "staticwebassets\\uploads\\trucks\\mercedes-axor.jpg"
     },
     {
