@@ -34,7 +34,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
 
                 string? token = cookie.Split(' ')[0];
 
-                string? strUserId = cookie.Split(' ')[1];
+                string? strUserId = cookie.Split(' ')[1].Decrypt();
 
                 if (string.IsNullOrWhiteSpace(strUserId) || Convert.ToInt32(strUserId) <= 0)
                     return new CommandJsonResponse("İstifadəçi tapılmadı!", true);

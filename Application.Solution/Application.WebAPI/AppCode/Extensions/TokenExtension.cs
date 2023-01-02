@@ -71,7 +71,10 @@ namespace Application.WebAPI.AppCode.Extensions
                 Expires = token.Expires
             };
 
-            ctx.HttpContext.Response.Cookies.Append("refresh-token", token.Token + " " + user.Id.ToString(), options);
+            string userId = user.Id.ToString();
+            string encryptedUserId = userId.Encrypt();
+
+            ctx.HttpContext.Response.Cookies.Append("refresh-token", token.Token + " " + encryptedUserId, options);
 
             user.RefreshToken = token.Token;
             user.TokenExpires = token.Expires;
