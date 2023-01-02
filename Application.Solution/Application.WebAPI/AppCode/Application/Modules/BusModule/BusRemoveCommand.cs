@@ -37,7 +37,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.BusModule
                 entity.DeletedDate = DateTime.UtcNow.AddHours(4);
                 await db.SaveChangesAsync(cancellationToken);
 
-                return new CommandJsonResponse("Məlumat uğurla silindi!", true);
+                return new CommandJsonResponse("Məlumat uğurla silindi!", false);
             }
         }
     }
