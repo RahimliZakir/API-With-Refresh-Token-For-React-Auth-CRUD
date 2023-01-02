@@ -22,7 +22,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.CarModule
 
             async public Task<IEnumerable<CarDto>> Handle(CarGetAllActiveQuery request, CancellationToken cancellationToken)
             {
-                IEnumerable<Car> cars = await db.Cars.Include(c => c.CarImages).ToListAsync(cancellationToken);
+                IEnumerable<Car> cars = await db.Cars.Include(c => c.CarImages).Where(p => p.DeletedDate == null).ToListAsync(cancellationToken);
 
                 IEnumerable<CarDto> dto = mapper.Map<IEnumerable<CarDto>>(cars);
 

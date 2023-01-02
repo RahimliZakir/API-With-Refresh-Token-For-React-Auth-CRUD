@@ -23,7 +23,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.BusModule
 
             async public Task<IEnumerable<BusDto>> Handle(BusGetAllActiveQuery request, CancellationToken cancellationToken)
             {
-                IEnumerable<Bus> buses = await db.Buses.ToListAsync(cancellationToken);
+                IEnumerable<Bus> buses = await db.Buses.Where(b => b.DeletedDate == null).ToListAsync(cancellationToken);
 
                 IEnumerable<BusDto> dto = mapper.Map<IEnumerable<BusDto>>(buses);
 

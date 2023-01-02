@@ -30,7 +30,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.CarModule
 
                 Car? car = await db.Cars
                                    .Include(c => c.CarImages)
-                                   .FirstOrDefaultAsync(p => p.Id.Equals(request.Id), cancellationToken);
+                                   .FirstOrDefaultAsync(p => p.Id.Equals(request.Id) && p.DeletedDate == null, cancellationToken);
 
                 if (car is null)
                     return new CommandJsonResponse("Məlumat tapılmadı!", true);

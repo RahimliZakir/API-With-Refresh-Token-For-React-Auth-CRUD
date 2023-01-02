@@ -29,14 +29,14 @@ namespace Application.WebAPI.AppCode.Application.Modules.CarModule
 
                 Car? entity = await db.Cars
                                       .Include(c => c.CarImages)
-                                      .FirstOrDefaultAsync(p => p.Id.Equals(request.Id), cancellationToken);
+                                      .FirstOrDefaultAsync(p => p.Id.Equals(request.Id) && p.DeletedDate == null, cancellationToken);
 
                 if (entity is null)
                 {
                     return new CommandJsonResponse("Məlumat mövcud deyil!", true);
                 }
 
-                db.Cars.Remove(entity);
+                entity.DeletedDate = DateTime.UtcNow.AddHours(4);
                 await db.SaveChangesAsync(cancellationToken);
 
                 return new CommandJsonResponse("Məlumat uğurla silindi!", true);

@@ -29,7 +29,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.TruckModule
                 if (request.Id == null || request.Id <= 0)
                     return new CommandJsonResponse("Id düzgün göndərilməyib!", true);
 
-                Truck? Truck = await db.Trucks.FirstOrDefaultAsync(p => p.Id.Equals(request.Id), cancellationToken);
+                Truck? Truck = await db.Trucks.FirstOrDefaultAsync(p => p.Id.Equals(request.Id) && p.DeletedDate == null, cancellationToken);
 
                 if (Truck is null)
                     return new CommandJsonResponse("Məlumat tapılmadı!", true);

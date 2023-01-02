@@ -8,5 +8,7 @@ namespace Application.WebAPI.Models.Entities
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
+
+        public DateTime? DeletedDate { get; set; }
     }
 }

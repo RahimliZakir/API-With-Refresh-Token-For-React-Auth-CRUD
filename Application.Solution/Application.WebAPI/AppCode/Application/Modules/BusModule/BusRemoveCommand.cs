@@ -27,14 +27,14 @@ namespace Application.WebAPI.AppCode.Application.Modules.BusModule
                     return new CommandJsonResponse("Məlumat tamlığı qorunmayıb!", true);
                 }
 
-                Bus? entity = await db.Buses.FirstOrDefaultAsync(p => p.Id.Equals(request.Id), cancellationToken);
+                Bus? entity = await db.Buses.FirstOrDefaultAsync(p => p.Id.Equals(request.Id) && p.DeletedDate == null, cancellationToken);
 
                 if (entity is null)
                 {
                     return new CommandJsonResponse("Məlumat mövcud deyil!", true);
                 }
 
-                db.Buses.Remove(entity);
+                entity.DeletedDate = DateTime.UtcNow.AddHours(4);
                 await db.SaveChangesAsync(cancellationToken);
 
                 return new CommandJsonResponse("Məlumat uğurla silindi!", true);

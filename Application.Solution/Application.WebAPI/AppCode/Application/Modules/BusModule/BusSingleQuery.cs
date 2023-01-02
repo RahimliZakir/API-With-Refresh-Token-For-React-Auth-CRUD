@@ -29,7 +29,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.BusModule
                 if (request.Id == null || request.Id <= 0)
                     return new CommandJsonResponse("Id düzgün göndərilməyib!", true);
 
-                Bus? bus = await db.Buses.FirstOrDefaultAsync(p => p.Id.Equals(request.Id), cancellationToken);
+                Bus? bus = await db.Buses.FirstOrDefaultAsync(p => p.Id.Equals(request.Id) && p.DeletedDate == null, cancellationToken);
 
                 if (bus is null)
                     return new CommandJsonResponse("Məlumat tapılmadı!", true);

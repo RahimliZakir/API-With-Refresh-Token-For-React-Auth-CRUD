@@ -23,7 +23,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.TruckModule
 
             async public Task<IEnumerable<TruckDto>> Handle(TruckGetAllActiveQuery request, CancellationToken cancellationToken)
             {
-                IEnumerable<Truck> Trucks = await db.Trucks.ToListAsync(cancellationToken);
+                IEnumerable<Truck> Trucks = await db.Trucks.Where(p => p.DeletedDate == null).ToListAsync(cancellationToken);
 
                 IEnumerable<TruckDto> dto = mapper.Map<IEnumerable<TruckDto>>(Trucks);
 

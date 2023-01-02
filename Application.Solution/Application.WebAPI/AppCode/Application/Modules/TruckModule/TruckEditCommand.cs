@@ -33,7 +33,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.TruckModule
                 if (request.Id is null or < 0)
                     return new CommandJsonResponse("Id düzgün göndərilməyib!", true);
 
-                Truck? entity = await db.Trucks.FirstOrDefaultAsync(p => p.Id.Equals(request.Id), cancellationToken);
+                Truck? entity = await db.Trucks.FirstOrDefaultAsync(p => p.Id.Equals(request.Id) && p.DeletedDate == null, cancellationToken);
 
                 if (entity is null)
                     return new CommandJsonResponse("Məlumat tapılmadı!", true);
