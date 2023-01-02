@@ -68,7 +68,7 @@ namespace Application.WebAPI.Controllers
             return AcceptedAtAction("GetCar", new { Id = ((CommandJsonResponse<CarDto>)response).Data.Id }, response);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{Id}")]
         public async Task<IActionResult> DeleteCar(CarRemoveCommand command)
         {
             CommandJsonResponse response = await mediator.Send(command);
