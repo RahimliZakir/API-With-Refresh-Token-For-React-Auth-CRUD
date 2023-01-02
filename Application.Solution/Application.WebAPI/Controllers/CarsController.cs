@@ -69,7 +69,7 @@ namespace Application.WebAPI.Controllers
         }
 
         [HttpDelete("{Id}")]
-        public async Task<IActionResult> DeleteCar(CarRemoveCommand command)
+        public async Task<IActionResult> DeleteCar([FromRoute] CarRemoveCommand command)
         {
             CommandJsonResponse response = await mediator.Send(command);
 
