@@ -22,7 +22,7 @@ namespace Application.WebAPI.Controllers
     {
         readonly IMediator mediator;
 
-        public CarsController(VehicleDbContext context, IMediator mediator)
+        public CarsController(IMediator mediator)
         {
             this.mediator = mediator;
         }
