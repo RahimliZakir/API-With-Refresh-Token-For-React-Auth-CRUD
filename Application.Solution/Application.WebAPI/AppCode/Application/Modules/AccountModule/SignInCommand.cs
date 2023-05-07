@@ -77,7 +77,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
                 }
 
             stopGenerate:
-                string tokenAndExpires = user.GenerateToken(conf);
+                JWTTokenViewModel tokenAndExpires = user.GenerateToken(conf);
 
                 // Refresh Token
                 RefreshTokenViewModel refreshToken = Extension.GenerateRefreshToken();
@@ -85,7 +85,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
                 await user.SetRefreshToken(refreshToken, ctx, db, cancellationToken);
                 // Refresh Token
 
-                return new CommandJsonResponse<string>("Uğurludur!", false, tokenAndExpires);
+                return new CommandJsonResponse<JWTTokenViewModel>("Uğurludur!", false, tokenAndExpires);
             }
         }
     }

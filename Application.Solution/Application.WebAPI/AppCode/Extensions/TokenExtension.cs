@@ -12,7 +12,7 @@ namespace Application.WebAPI.AppCode.Extensions
 {
     public static partial class Extension
     {
-        public static string GenerateToken(this VehicleUser user, IConfiguration conf)
+        public static JWTTokenViewModel GenerateToken(this VehicleUser user, IConfiguration conf)
         {
             List<Claim> claims = new();
             claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
@@ -48,7 +48,11 @@ namespace Application.WebAPI.AppCode.Extensions
 
             string token = new JwtSecurityTokenHandler().WriteToken(tokenBuilder);
 
-            return $"Token: {token}, expires: {expired}.";
+            return new JWTTokenViewModel
+            {
+                Token = token,
+                Expires = $"{expired:dd.MM.yyyy HH:mm:ss}"
+            };
         }
 
         public static RefreshTokenViewModel GenerateRefreshToken()

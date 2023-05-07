@@ -48,11 +48,11 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
                 else if (user.TokenExpires <= DateTime.UtcNow.AddHours(4))
                     return new CommandJsonResponse("Tokenin vaxtı bitib!", true);
 
-                string tokenAndExpires = user.GenerateToken(conf);
+                JWTTokenViewModel tokenAndExpires = user.GenerateToken(conf);
                 RefreshTokenViewModel refreshToken = Extension.GenerateRefreshToken();
                 await user.SetRefreshToken(refreshToken, ctx, db, cancellationToken);
 
-                return new CommandJsonResponse<string>("Uğurludur!", false, tokenAndExpires);
+                return new CommandJsonResponse<JWTTokenViewModel>("Uğurludur!", false, tokenAndExpires);
             }
         }
     }
