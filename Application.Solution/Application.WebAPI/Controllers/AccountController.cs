@@ -18,9 +18,9 @@ namespace Application.WebAPI.Controllers
             this.mediator = mediator;
         }
 
-        [HttpPost("signin"), AllowAnonymous]
-        [SwaggerOperation("Daxil olma pəncərəsi", "Bu hissədən istifadə edərək, istifadəçi sistemə daxil ola bilər.")]
-        async public Task<IActionResult> SignIn(SignInCommand command)
+        [HttpPost("register"), AllowAnonymous]
+        [SwaggerOperation("Qeydiyyat pəncərəsi", "Bu hissədən istifadə edərək, istifadəçi sistem üçün qeydiyyatdan keçə bilər.")]
+        async public Task<IActionResult> Register(RegisterCommand command)
         {
             CommandJsonResponse response = await mediator.Send(command);
 
@@ -30,9 +30,9 @@ namespace Application.WebAPI.Controllers
             return Ok(response);
         }
 
-        [HttpPost("register"), AllowAnonymous]
-        [SwaggerOperation("Qeydiyyat pəncərəsi", "Bu hissədən istifadə edərək, istifadəçi sistem üçün qeydiyyatdan keçə bilər.")]
-        async public Task<IActionResult> Register(RegisterCommand command)
+        [HttpPost("signin"), AllowAnonymous]
+        [SwaggerOperation("Daxil olma pəncərəsi", "Bu hissədən istifadə edərək, istifadəçi sistemə daxil ola bilər.")]
+        async public Task<IActionResult> SignIn(SignInCommand command)
         {
             CommandJsonResponse response = await mediator.Send(command);
 
