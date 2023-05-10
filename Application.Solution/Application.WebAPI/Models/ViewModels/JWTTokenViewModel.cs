@@ -2,7 +2,7 @@
 {
     public class JWTTokenViewModel
     {
-        public string Token { get; set; }
-        public string Expires { get; set; }
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
     }
 }

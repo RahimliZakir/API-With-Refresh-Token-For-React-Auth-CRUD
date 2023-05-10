@@ -1,5 +1,6 @@
 ﻿using Application.WebAPI.AppCode.Application.Infrastructure;
 using Application.WebAPI.AppCode.Extensions;
+using Application.WebAPI.AppCode.Services.JWT;
 using Application.WebAPI.Models.DataContexts;
 using Application.WebAPI.Models.Entities.Membership;
 using Application.WebAPI.Models.FormModels;
@@ -23,18 +24,22 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
             readonly SignInManager<VehicleUser> signInManager;
             readonly IConfiguration conf;
             readonly IHttpContextAccessor ctx;
+            readonly IJWTService jwtService;
 
-            public SignInCommandHandler(VehicleDbContext db, UserManager<VehicleUser> userManager, SignInManager<VehicleUser> signInManager, IConfiguration conf, IHttpContextAccessor ctx)
+            public SignInCommandHandler(VehicleDbContext db, UserManager<VehicleUser> userManager, SignInManager<VehicleUser> signInManager, IConfiguration conf, IHttpContextAccessor ctx, IJWTService jwtService)
             {
                 this.db = db;
                 this.userManager = userManager;
                 this.signInManager = signInManager;
                 this.conf = conf;
                 this.ctx = ctx;
+                this.jwtService = jwtService;
             }
 
             async public Task<CommandJsonResponse> Handle(SignInCommand request, CancellationToken cancellationToken)
             {
+                DateTime nowAz = DateTime.UtcNow.AddHours(4);
+
                 if (string.IsNullOrWhiteSpace(request.Username))
                 {
                     return new CommandJsonResponse("İstifadəçi adı göndərilməyib!", true);
@@ -77,15 +82,24 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
                 }
 
             stopGenerate:
-                JWTTokenViewModel tokenAndExpires = user.GenerateToken(conf);
+                JWTTokenViewModel vm = new()
+                {
+                    AccessToken = jwtService.GenerateAccessToken(user),
+                    RefreshToken = jwtService.GenerateRefreshToken()
+                };
 
-                // Refresh Token
-                RefreshTokenViewModel refreshToken = Extension.GenerateRefreshToken();
+                if (!string.IsNullOrWhiteSpace(vm.RefreshToken))
+                {
+                    string encryptedRefreshToken = vm.RefreshToken.Encrypt();
 
-                await user.SetRefreshToken(refreshToken, ctx, db, cancellationToken);
-                // Refresh Token
+                    user.RefreshToken = encryptedRefreshToken;
+                    user.TokenCreated = nowAz;
+                    user.TokenExpires = nowAz.AddDays(1);
 
-                return new CommandJsonResponse<JWTTokenViewModel>("Uğurludur!", false, tokenAndExpires);
+                    await db.SaveChangesAsync(cancellationToken);
+                }
+
+                return new CommandJsonResponse<JWTTokenViewModel>("Uğurludur!", false, vm);
             }
         }
     }

@@ -1,5 +1,6 @@
 using Application.WebAPI.AppCode.Extensions;
 using Application.WebAPI.AppCode.Providers;
+using Application.WebAPI.AppCode.Services.JWT;
 using Application.WebAPI.Models.DataContexts;
 using Application.WebAPI.Models.Entities.Membership;
 using Application.WebAPI.Models.Initializers;
@@ -103,6 +104,8 @@ services.AddScoped<UserManager<VehicleUser>>()
 
 services.AddScoped<IClaimsTransformation, AppClaimProvider>();
 
+services.AddScoped<IJWTService, JWTService>();
+
 services.Configure<IdentityOptions>(options =>
 {
     options.Password.RequireDigit = false;
@@ -130,7 +133,7 @@ services.AddCors(cfg =>
     });
 });
 
-byte[] buffer = Encoding.UTF8.GetBytes(conf.GetValue<string>("Jwt:Secret"));
+byte[] buffer = Encoding.UTF8.GetBytes(conf.GetValue<string>("JWT:Secret"));
 
 services.AddAuthentication(cfg =>
 {
@@ -145,8 +148,8 @@ services.AddAuthentication(cfg =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = conf.GetValue<string>("Jwt:Issuer"),
-        ValidAudience = conf.GetValue<string>("Jwt:Audience"),
+        ValidIssuer = conf.GetValue<string>("JWT:Issuer"),
+        ValidAudience = conf.GetValue<string>("JWT:Audience"),
         IssuerSigningKey = new SymmetricSecurityKey(buffer)
     };
 });

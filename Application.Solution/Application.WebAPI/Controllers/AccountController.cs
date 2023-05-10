@@ -43,9 +43,9 @@ namespace Application.WebAPI.Controllers
         }
 
         [HttpPost("refresh-token"), AllowAnonymous]
-        async public Task<IActionResult> RefreshToken()
+        async public Task<IActionResult> RefreshToken([FromBody] RefreshTokenCommand command)
         {
-            CommandJsonResponse response = await mediator.Send(new RefreshTokenCommand());
+            CommandJsonResponse response = await mediator.Send(command);
 
             if (response.Error)
                 return BadRequest(response);
