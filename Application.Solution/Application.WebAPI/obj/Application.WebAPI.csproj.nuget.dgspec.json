@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\Application.WebAPI.csproj": {}
+    "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-For-React-Auth-CRUD\\Application.Solution\\Application.WebAPI\\Application.WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\Application.WebAPI.csproj": {
+    "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-For-React-Auth-CRUD\\Application.Solution\\Application.WebAPI\\Application.WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\Application.WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-For-React-Auth-CRUD\\Application.Solution\\Application.WebAPI\\Application.WebAPI.csproj",
         "projectName": "Application.WebAPI",
-        "projectPath": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\Application.WebAPI.csproj",
-        "packagesPath": "C:\\Users\\Zakir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zakir\\Desktop\\API-With-Refresh-Token-And-For-Auth-React\\Application.Solution\\Application.WebAPI\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-For-React-Auth-CRUD\\Application.Solution\\Application.WebAPI\\Application.WebAPI.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\API-With-Refresh-Token-For-React-Auth-CRUD\\Application.Solution\\Application.WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Zakir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -124,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

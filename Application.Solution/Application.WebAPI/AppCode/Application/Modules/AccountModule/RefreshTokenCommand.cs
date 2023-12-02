@@ -50,7 +50,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
                 if (userId == null)
                     goto userNotFound;
 
-                VehicleUser user = await db.Users.FirstOrDefaultAsync(u => u.Id == userId, cancellationToken); ;
+                VehicleUser user = await db.Users.FirstOrDefaultAsync(u => u.Id == userId, cancellationToken);
 
                 if (user == null)
                     goto userNotFound;

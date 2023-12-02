@@ -28,11 +28,11 @@ services.AddRouting(cfg =>
 
 services.AddControllers(cfg =>
 {
-    //AuthorizationPolicy builder = new AuthorizationPolicyBuilder()
-    //                                  .RequireAuthenticatedUser()
-    //                                  .Build();
+    AuthorizationPolicy builder = new AuthorizationPolicyBuilder()
+                                      .RequireAuthenticatedUser()
+                                      .Build();
 
-    //cfg.Filters.Add(new AuthorizeFilter(builder));
+    cfg.Filters.Add(new AuthorizeFilter(builder));
 });
 
 services.AddDbContext<VehicleDbContext>(cfg =>
