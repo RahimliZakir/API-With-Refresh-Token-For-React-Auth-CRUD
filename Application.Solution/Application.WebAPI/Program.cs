@@ -150,7 +150,8 @@ services.AddAuthentication(cfg =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = conf.GetValue<string>("JWT:Issuer"),
         ValidAudience = conf.GetValue<string>("JWT:Audience"),
-        IssuerSigningKey = new SymmetricSecurityKey(buffer)
+        IssuerSigningKey = new SymmetricSecurityKey(buffer),
+        //ClockSkew = TimeSpan.Zero
     };
 });
 

@@ -78,7 +78,7 @@ namespace Application.WebAPI.AppCode.Application.Modules.AccountModule
                     await db.SaveChangesAsync(cancellationToken);
                 }
 
-                return new CommandJsonResponse<JWTTokenViewModel>("Belə bir istifadəçi tapılmadı!", false, vm);
+                return new CommandJsonResponse<JWTTokenViewModel>("Uğurludur!", false, vm);
 
             userNotFound:
                 return new CommandJsonResponse("Belə bir istifadəçi tapılmadı!", true);

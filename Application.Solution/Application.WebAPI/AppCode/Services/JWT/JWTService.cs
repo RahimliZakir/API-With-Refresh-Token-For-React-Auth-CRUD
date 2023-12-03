@@ -46,7 +46,7 @@ namespace Application.WebAPI.AppCode.Services.JWT
                 var key = new SymmetricSecurityKey(buffer);
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-                var expired = DateTime.UtcNow.AddMinutes(5);
+                var expired = DateTime.UtcNow.AddMinutes(30);
 
                 var tokenBuilder = new JwtSecurityToken(issuer, audience, claims,
                                                         expires: expired,
